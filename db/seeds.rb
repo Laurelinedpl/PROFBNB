@@ -16,7 +16,7 @@ Teacher.destroy_all
 # Create 5 users
 users = []
 users << User.create(email: "kevin@example.com", password: "kevinsaison", first_name: "Kevin", last_name: "Saison")
-users << User.create(email: "baptiste@example.com", password: "baptistecasagrande", first_name: "Baptiste", last_name: "Casagrande")
+users << User.create(email: "baptiste@example.com", password: "baptistecasa", first_name: "Baptiste", last_name: "Casagrande")
 users << User.create(email: "laureline@example.com", password: "laurelinedesplanches", first_name: "Laureline", last_name: "Desplanches")
 users << User.create(email: "lotfi@example.com", password: "lotfibensmail", first_name: "Lotfi", last_name: "Bensmail")
 users << User.create(email: "anna@example.com", password: "annaboulin", first_name: "Anna", last_name: "Boulin")

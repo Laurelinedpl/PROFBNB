@@ -1,11 +1,11 @@
-<h1><%= @teacher.nom %> <%= @teacher.prenom %></h1>
+<h1><%= @teacher.last_name %> <%= @teacher.first_name %></h1>
 
 <p>
-  <strong>Nom:</strong> <%= @teacher.nom %>
+  <strong>Nom:</strong> <%= @teacher.last_name %>
 </p>
 
 <p>
-  <strong>Prénom:</strong> <%= @teacher.prenom %>
+  <strong>Prénom:</strong> <%= @teacher.first_name %>
 </p>
 
 <%= link_to 'Modifier', edit_teacher_path(@teacher), class: "btn btn-primary" %>
