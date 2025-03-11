@@ -11,7 +11,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.nom %> <%= user.prenom %></td>
+        <td><%= user.last_name %> <%= user.first_name %></td>
         <td><%= user.email %></td>
         <td>
           <%= link_to 'Voir', user_path(user), class: "btn btn-info btn-sm" %>
