@@ -1,6 +1,6 @@
 class Booking < ApplicationRecord
-  belongs_to :teacher
   belongs_to :user
+  belongs_to :teacher
 
   validates :date, presence: true
   validates :status, presence: true, inclusion: { in: %w[pending confirmed cancelled] }

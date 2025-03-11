@@ -1,0 +1,10 @@
+<h1>Profil de <%= @user.nom %> <%= @user.prenom %></h1>
+
+<p><strong>Email :</strong> <%= @user.email %></p>
+
+<% if current_user == @user || current_user.admin? %>
+  <%= link_to 'Modifier', edit_user_path(@user), class: "btn btn-primary" %>
+  <%= button_to 'Supprimer', @user, method: :delete, data: { confirm: 'Es-tu sûr ?' }, class: "btn btn-danger" %>
+<% end %>
+
+<%= link_to 'Retour', users_path, class: "btn btn-secondary" %>

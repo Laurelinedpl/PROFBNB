@@ -1,0 +1,18 @@
+<%= form_with(model: booking, local: true) do |f| %>
+  <div class="mb-3">
+    <%= f.label :teacher_id, "Professeur" %>
+    <%= f.collection_select :teacher_id, Teacher.all, :id, :nom, { prompt: "Sélectionner un professeur" }, { class: "form-control" } %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :date, "Date de réservation" %>
+    <%= f.datetime_select :date, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :statut, "Statut" %>
+    <%= f.select :statut, Booking::STATUTS, {}, class: "form-control" %>
+  </div>
+
+  <%= f.submit booking.new_record? ? "Créer Booking" : "Mettre à jour", class: "btn btn-success" %>
+<% end %>
