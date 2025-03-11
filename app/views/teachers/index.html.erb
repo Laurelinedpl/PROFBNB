@@ -1,0 +1,30 @@
+<h1>Liste des Professeurs</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @teachers.each do |teacher| %>
+      <tr>
+        <td><%= teacher.nom %></td>
+        <td><%= teacher.prenom %></td>
+        <td>
+          <%= link_to 'Voir', teacher_path(teacher), class: "btn btn-info btn-sm" %>
+          <% if current_user.admin? %>
+            <%= link_to 'Modifier', edit_teacher_path(teacher), class: "btn btn-warning btn-sm" %>
+            <%= button_to 'Supprimer', teacher, method: :delete, data: { confirm: 'Es-tu sûr ?' }, class: "btn btn-danger btn-sm" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if current_user.admin? %>
+  <%= link_to 'Ajouter un Professeur', new_teacher_path, class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,13 @@
+<h1>Réservation :</h1>
+
+<p><strong>Professeur :</strong> <%= @booking.teacher.nom %> <%= @booking.teacher.prenom %></p>
+<p><strong>Utilisateur :</strong> <%= @booking.user.email %></p>
+<p><strong>Date :</strong> <%= l(@booking.date) %></p>
+<p><strong>Statut :</strong> <%= @booking.statut.capitalize %></p>
+
+<% if current_user == @booking.user || current_user.admin? %>
+  <%= link_to 'Modifier', edit_booking_path(@booking), class: "btn btn-primary" %>
+  <%= button_to 'Annuler', @booking, method: :delete, data: { confirm: 'Es-tu sûr ?' }, class: "btn btn-danger" %>
+<% end %>
+
+<%= link_to 'Retour aux réservations', bookings_path, class: "btn btn-secondary" %>

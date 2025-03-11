@@ -1,0 +1,26 @@
+<h1>Liste des Utilisateurs</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.nom %> <%= user.prenom %></td>
+        <td><%= user.email %></td>
+        <td>
+          <%= link_to 'Voir', user_path(user), class: "btn btn-info btn-sm" %>
+          <% if current_user == user || current_user.admin? %>
+            <%= link_to 'Modifier', edit_user_path(user), class: "btn btn-warning btn-sm" %>
+            <%= button_to 'Supprimer', user, method: :delete, data: { confirm: 'Es-tu sûr ?' }, class: "btn btn-danger btn-sm" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

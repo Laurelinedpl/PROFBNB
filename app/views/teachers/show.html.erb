@@ -1,0 +1,14 @@
+<h1><%= @teacher.nom %> <%= @teacher.prenom %></h1>
+
+<p>
+  <strong>Nom:</strong> <%= @teacher.nom %>
+</p>
+
+<p>
+  <strong>Prénom:</strong> <%= @teacher.prenom %>
+</p>
+
+<%= link_to 'Modifier', edit_teacher_path(@teacher), class: "btn btn-primary" %>
+<%= link_to 'Retour', teachers_path, class: "btn btn-secondary" %>
+
+<%= button_to 'Supprimer', @teacher, method: :delete, data: { confirm: 'Es-tu sûr ?' }, class: "btn btn-danger" %>

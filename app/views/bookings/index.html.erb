@@ -1,0 +1,30 @@
+<h1>Mes Réservations</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Professeur</th>
+      <th>Date</th>
+      <th>Statut</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.teacher.nom %> <%= booking.teacher.prenom %></td>
+        <td><%= l(booking.date, format: :long) %></td>
+        <td><%= booking.statut.capitalize %></td>
+        <td>
+          <%= link_to 'Voir', booking_path(booking), class: "btn btn-info btn-sm" %>
+          <% if current_user == booking.user || current_user.admin? %>
+            <%= link_to 'Modifier', edit_booking_path(booking), class: "btn btn-warning btn-sm" %>
+            <%= button_to 'Annuler', booking, method: :delete, data: { confirm: 'Es-tu sûr ?' }, class: "btn btn-danger btn-sm" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Nouvelle Booking', new_booking_path, class: "btn btn-primary" %>
