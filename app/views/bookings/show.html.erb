@@ -1,6 +1,6 @@
 <h1>Réservation :</h1>
 
-<p><strong>Professeur :</strong> <%= @booking.teacher.nom %> <%= @booking.teacher.prenom %></p>
+<p><strong>Professeur :</strong> <%= @booking.teacher.last_name %> <%= @booking.teacher.first_name %></p>
 <p><strong>Utilisateur :</strong> <%= @booking.user.email %></p>
 <p><strong>Date :</strong> <%= l(@booking.date) %></p>
 <p><strong>Statut :</strong> <%= @booking.statut.capitalize %></p>
