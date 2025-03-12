@@ -1,7 +1,7 @@
 <%= form_with(model: booking, local: true) do |f| %>
   <div class="mb-3">
     <%= f.label :teacher_id, "Professeur" %>
-    <%= f.collection_select :teacher_id, Teacher.all, :id, :nom, { prompt: "Sélectionner un professeur" }, { class: "form-control" } %>
+    <%= f.collection_select :teacher_id, Teacher.all, :id, :last_name, { prompt: "Sélectionner un professeur" }, { class: "form-control" } %>
   </div>
 
   <div class="mb-3">
@@ -10,8 +10,8 @@
   </div>
 
   <div class="mb-3">
-    <%= f.label :statut, "Statut" %>
-    <%= f.select :statut, Booking::STATUTS, {}, class: "form-control" %>
+    <%= f.label :status, "Statut" %>
+    <%= f.select :status, Booking::STATUS, {}, class: "form-control" %>
   </div>
 
   <%= f.submit booking.new_record? ? "Créer Booking" : "Mettre à jour", class: "btn btn-success" %>

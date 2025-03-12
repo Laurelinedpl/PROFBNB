@@ -1,4 +1,4 @@
-<h1>Profil de <%= @user.nom %> <%= @user.prenom %></h1>
+<h1>Profil de <%= @user.last_name %> <%= @user.first_name %></h1>
 
 <p><strong>Email :</strong> <%= @user.email %></p>
 
@@ -7,4 +7,24 @@
   <%= button_to 'Supprimer', @user, method: :delete, data: { confirm: 'Es-tu sûr ?' }, class: "btn btn-danger" %>
 <% end %>
 
-<%= link_to 'Retour', users_path, class: "btn btn-secondary" %>
+<h2>Réservations</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Teacher</th>
+      <th>Date</th>
+      <th>Statut</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.teacher.first_name %> <%= booking.teacher.last_name %></td>
+        <td><%= booking.date %></td>
+        <td><%= booking.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Retour', root_path, class: "btn btn-secondary" %>

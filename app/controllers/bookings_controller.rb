@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @bookings = @user.bookings
   end
 
   def new
@@ -15,10 +16,11 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = current_user.bookings.build(booking_params)
+    @booking = Booking.new(booking_params)
+    @booking.user = current_user
 
     if @booking.save
-      redirect_to @booking, notice: 'Réservation créée avec succès !'
+      redirect_to user_path(current_user), notice: 'La réservation a été créée avec succès.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -47,7 +49,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:date, :teacher_id, :statut)
+    params.require(:booking).permit(:date, :teacher_id, :status)
   end
 
   def authorize_user!

@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @bookings = @user.bookings
   end
 
   def edit
@@ -33,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :nom, :prenom, :password, :password_confirmation)
+    params.require(:user).permit(:email, :last_name, :first_name, :password)
   end
 
   def authorize_user!

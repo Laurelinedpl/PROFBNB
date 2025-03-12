@@ -12,3 +12,21 @@
 <%= link_to 'Retour', teachers_path, class: "btn btn-secondary" %>
 
 <%= button_to 'Supprimer', @teacher, method: :delete, data: { confirm: 'Es-tu sûr ?' }, class: "btn btn-danger" %>
+
+<%= form_with(model: Booking.new, url: bookings_path, local: true) do |f| %>
+  <div class="mb-3">
+    <%= f.hidden_field :teacher_id, value: @teacher.id %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :date, "Date de réservation" %>
+    <%= f.date_select :date, { class: "form-control" } %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :status, "Statut" %>
+    <%= f.select :status, Booking::STATUS, {}, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Réserver maintenant", class: "btn btn-primary" %>
+<% end %>
