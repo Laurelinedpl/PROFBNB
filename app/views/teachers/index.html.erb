@@ -1,23 +1,18 @@
-<h1>Liste des Professeurs</h1>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Prénom</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @teachers.each do |teacher| %>
-      <tr>
-        <td><%= teacher.last_name %></td>
-        <td><%= teacher.first_name %></td>
-        <td><%= cl_image_tag teacher.photo.key, height: 300, width: 400, crop: :fill %></td>
-        <td>
-          <%= link_to 'Voir', teacher_path(teacher), class: "btn btn-info btn-sm" %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div>
+    <div class="cards-container">
+      <div class="cards">
+        <h1>Liste des Professeurs</h1>
+              <% @teachers.each do |teacher| %>
+                <tr>
+                  <div class="card" style="background-image: url('<%= cl_image_path teacher.photo.key, height: 300, crop: :fill %>')">
+                      <td><%= teacher.last_name %></td>
+                      <td><%= teacher.first_name %></td>
+                      <td>
+                        <%= link_to 'Voir', teacher_path(teacher), class: "btn btn-info btn-sm" %>
+                      </td>
+                  </div>
+                </tr>
+              <% end %>
+      </div>
+    </div>
+</div>
