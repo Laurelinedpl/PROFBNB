@@ -1,13 +1,16 @@
-<%= form_with(model: teacher, local: true) do |f| %>
+<%= simple_form_for teacher, html: { multipart: true } do |f| %>
   <div class="mb-3">
-    <%= f.label :last_name, "Nom" %>
-    <%= f.text_field :last_name, class: "form-control" %>
+    <%= f.input :last_name, label: "Nom", input_html: { class: "form-control" } %>
   </div>
 
   <div class="mb-3">
-    <%= f.label :first_name, "Prénom" %>
-    <%= f.text_field :first_name, class: "form-control" %>
+    <%= f.input :first_name, label: "Prénom", input_html: { class: "form-control" } %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.input :photo, as: :file, label: "Photo" %>
   </div>
 
   <%= f.submit teacher.new_record? ? "Créer" : "Mettre à jour", class: "btn btn-success" %>
 <% end %>
+
