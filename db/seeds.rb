@@ -15,14 +15,14 @@ Teacher.destroy_all
 
 # Create 5 users
 users = []
-users << User.create(email: "kevin@example.com", password: "kevinsaison", first_name: "Kevin", last_name: "Saison")
-users << baptiste = User.create(email: "baptiste@example.com", password: "baptistecasa", first_name: "Baptiste", last_name: "Casagrande")
+users << kevin = User.create(email: "kevin@example.com", password: "kevinsaison", first_name: "Kevin", last_name: "Saison")
+users << User.create(email: "baptiste@example.com", password: "baptistecasa", first_name: "Baptiste", last_name: "Casagrande")
 users << User.create(email: "laureline@example.com", password: "laurelinedesplanches", first_name: "Laureline", last_name: "Desplanches")
 users << User.create(email: "lotfi@example.com", password: "lotfibensmail", first_name: "Lotfi", last_name: "Bensmail")
 users << User.create(email: "anna@example.com", password: "annaboulin", first_name: "Anna", last_name: "Boulin")
-file = URI.parse("https://ca.slack-edge.com/T02NE0241-U089HB880CV-086ce835c602-48").open
-baptiste.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-baptiste.save
+file = URI.parse("https://ca.slack-edge.com/T02NE0241-U08AA2SGX24-e56e23ebdf92-512").open
+kevin.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+kevin.save
 
 puts "Created #{User.count} users"
 
