@@ -1,0 +1,32 @@
+.homepage{
+  background-image: url("https://images.unsplash.com/photo-1705947172050-f930e2856301?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  height: 100vh;
+  background-repeat: no-repeat;
+}
+
+.cards{
+  background-size: cover;
+    background-position: center;
+    height: 150px;
+    border-radius: 1px;
+    box-shadow: 0 0 10px rgba(5, 5, 5, 0.2);
+    display: flex
+}
+
+.card{
+  background-image: url(https://ca.slack-edge.com/T02NE0241-U016L9SL4NP-e8b125078a73-512);
+  width: 700px;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 22px;
+  color: rgb(15, 71, 73);
+  font-weight: bolder;
+  text-shadow: 0 0 10px rgba(3, 3, 3, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(5, 5, 5, 0.2);
+  display: flex;
+  margin: 10px;
+}

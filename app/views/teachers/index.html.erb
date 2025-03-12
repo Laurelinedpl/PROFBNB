@@ -1,22 +1,18 @@
-<h1>Liste des Professeurs</h1>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Prénom</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @teachers.each do |teacher| %>
-      <tr>
-        <td><%= teacher.last_name %></td>
-        <td><%= teacher.first_name %></td>
-        <td>
-          <%= link_to 'Voir', teacher_path(teacher), class: "btn btn-info btn-sm" %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div>
+    <div class="cards-container">
+      <div class="cards">
+        <h1>Liste des Professeurs</h1>
+              <% @teachers.each do |teacher| %>
+                <tr>
+                  <div class="card" style="background-image: url(https://ca.slack-edge.com/T02NE0241-U016L9SL4NP-e8b125078a73-512)">
+                      <td><%= teacher.last_name %></td>
+                      <td><%= teacher.first_name %></td>
+                      <td>
+                        <%= link_to 'Voir', teacher_path(teacher), class: "btn btn-info btn-sm" %>
+                      </td>
+                  </div>
+                </tr>
+              <% end %>
+      </div>
+    </div>
+</div>
