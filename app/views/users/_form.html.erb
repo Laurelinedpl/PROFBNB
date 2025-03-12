@@ -1,35 +1,33 @@
-<%= form_with(model: user, local: true) do |f| %>
+<%= simple_form_for user, html: { multipart: true } do |f| %>
   <div class="mb-3">
-    <%= f.label :last_name, "Nom" %>
-    <%= f.text_field :last_name, class: "form-control" %>
+    <%= f.input :last_name, label: "Nom", input_html: { class: "form-control" } %>
   </div>
 
   <div class="mb-3">
-    <%= f.label :first_name, "Prénom" %>
-    <%= f.text_field :first_name, class: "form-control" %>
+    <%= f.input :first_name, label: "Prénom", input_html: { class: "form-control" } %>
   </div>
 
   <div class="mb-3">
-    <%= f.label :email, "Email" %>
-    <%= f.email_field :email, class: "form-control" %>
+    <%= f.input :email, label: "Email", input_html: { class: "form-control" } %>
   </div>
 
   <h3 class="mt-4">Changer de mot de passe</h3>
 
   <div class="mb-3">
-    <%= f.label :current_password, "Mot de passe actuel" %>
-    <%= f.password_field :current_password, class: "form-control", autocomplete: "current-password" %>
+    <%= f.input :current_password, label: "Mot de passe actuel", as: :password, input_html: { class: "form-control", autocomplete: "current-password" } %>
     <small class="text-muted">Obligatoire pour modifier le mot de passe</small>
   </div>
 
   <div class="mb-3">
-    <%= f.label :password, "Nouveau mot de passe" %>
-    <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %>
+    <%= f.input :password, label: "Nouveau mot de passe", as: :password, input_html: { class: "form-control", autocomplete: "new-password" } %>
   </div>
 
   <div class="mb-3">
-    <%= f.label :password_confirmation, "Confirmer le nouveau mot de passe" %>
-    <%= f.password_field :password_confirmation, class: "form-control" %>
+    <%= f.input :password_confirmation, label: "Confirmer le nouveau mot de passe", as: :password, input_html: { class: "form-control" } %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.input :photo, as: :file, label: "Photo" %>
   </div>
 
   <%= f.submit "Mettre à jour", class: "btn btn-success" %>
