@@ -1,12 +1,12 @@
 <%= form_with(model: teacher, local: true) do |f| %>
   <div class="mb-3">
-    <%= f.label :nom, "Nom" %>
-    <%= f.text_field :nom, class: "form-control" %>
+    <%= f.label :last_name, "Nom" %>
+    <%= f.text_field :last_name, class: "form-control" %>
   </div>
 
   <div class="mb-3">
-    <%= f.label :prenom, "Prénom" %>
-    <%= f.text_field :prenom, class: "form-control" %>
+    <%= f.label :first_name, "Prénom" %>
+    <%= f.text_field :first_name, class: "form-control" %>
   </div>
 
   <%= f.submit teacher.new_record? ? "Créer" : "Mettre à jour", class: "btn btn-success" %>
