@@ -11,6 +11,7 @@ class TeachersController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: { teacher: teacher }),
         marker_html: render_to_string(partial: "marker", locals: { teacher: teacher })
       }
+    end
 
     if params[:query].present?
       sql_subquery = "last_name ILIKE :query OR first_name ILIKE :query"
