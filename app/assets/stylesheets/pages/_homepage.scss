@@ -7,26 +7,32 @@
 .cards{
   background-size: cover;
     background-position: center;
-    height: 150px;
     border-radius: 1px;
     box-shadow: 0 0 10px rgba(5, 5, 5, 0.2);
-    display: flex
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 8px;
+
 }
 
 .card{
-  background-image: url(https://ca.slack-edge.com/T02NE0241-U016L9SL4NP-e8b125078a73-512);
-  width: 700px;
-  height: 400px;
+  height: 350px;
+  width: 250px;
   background-size: cover;
   background-position: center;
-  align-items: center;
-  justify-content: space-around;
   font-size: 22px;
   color: rgb(15, 71, 73);
   font-weight: bolder;
   text-shadow: 0 0 10px rgba(3, 3, 3, 0.7);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(5, 5, 5, 0.2);
-  display: flex;
-  margin: 10px;
+  margin: auto;
+  padding: 13px;
 }
+.button{
+  background-color: rgba(185, 183, 183, 0.5);
+  border-radius: 12px;
+}
+ .button:hover{
+  background-color: rgb(121, 121, 121);
+ }
