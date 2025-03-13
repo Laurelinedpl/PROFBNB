@@ -3,6 +3,7 @@ class TeachersController < ApplicationController
 
   def index
     @teachers = Teacher.all
+
     @markers = @teachers.geocoded.map do |teacher|
       {
         lat: teacher.latitude,
@@ -10,6 +11,11 @@ class TeachersController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: { teacher: teacher }),
         marker_html: render_to_string(partial: "marker", locals: { teacher: teacher })
       }
+
+    if params[:query].present?
+      sql_subquery = "last_name ILIKE :query OR first_name ILIKE :query"
+      @teachers = @teachers.where(sql_subquery, query: "#{params[:query]}%")
+
     end
   end
 
