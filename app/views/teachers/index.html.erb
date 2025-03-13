@@ -18,17 +18,16 @@
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
         <h1>Liste des Professeurs</h1>
-              <% @teachers.each do |teacher| %>
-                <tr>
+          <% @teachers.each do |teacher| %>
+            <tr>
+              <%= link_to teacher_path(teacher), class: "card-link" do %>
                   <div class="card" style="background-image: url('<%= cl_image_path teacher.photo.key, height: 300, crop: :fill %>')">
-                      <td><%= teacher.last_name %></td>
-                      <td><%= teacher.first_name %></td>
-                      <td>
-                        <%= link_to 'Voir', teacher_path(teacher), class: "btn btn-info btn-sm" %>
-                      </td>
+                    <td><%= teacher.last_name %></td>
+                    <td><%= teacher.first_name %></td>
                   </div>
-                </tr>
-              <% end %>
+                <% end %>
+              </tr>
+            <% end %>
       </div>
     </div>
 </div>
