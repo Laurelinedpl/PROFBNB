@@ -11,6 +11,9 @@
     <%= f.input :photo, as: :file, label: "Photo" %>
   </div>
 
+    <div class="mb-3">
+    <%= f.input :address, label: "Adresse", input_html: { class: "form-control" } %>
+  </div>
+
   <%= f.submit teacher.new_record? ? "Créer" : "Mettre à jour", class: "btn btn-success" %>
 <% end %>
-
