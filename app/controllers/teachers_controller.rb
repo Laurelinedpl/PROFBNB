@@ -3,6 +3,10 @@ class TeachersController < ApplicationController
 
   def index
     @teachers = Teacher.all
+    if params[:query].present?
+      sql_subquery = "last_name ILIKE :query OR first_name ILIKE :query"
+      @teachers = @teachers.where(sql_subquery, query: "#{params[:query]}%")
+    end
   end
 
   def show
