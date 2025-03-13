@@ -1,30 +1,36 @@
-<h1>Profil de <%= @user.last_name %> <%= @user.first_name %></h1>
+<div style= "height: 90vh;">
+  <div class="container m-3 text-center">
+    <div class="row">
+      <div class="col-4 profile border p-3">
+        <%= cl_image_tag current_user.photo.key, class:"rounded-circle border border-info-subtle" %>
+        <p><strong><%= @user.last_name %> <%= @user.first_name %></strong></p>
+        <p>Wagon Student</p>
+        <p><%= @user.email %></p>
+        <ul class="list-group list-group-horizontal">
+          <li><a href="#"><i class="fa-brands fa-facebook m-1"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-twitter m-1"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-linkedin m-1"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-instagram m-1"></i></a></li>
+        </ul>
 
-<p><strong>Email :</strong> <%= @user.email %></p>
+        <% if current_user == @user || current_user.admin? %>
+          <%= link_to 'Modifier', edit_user_path(@user), class: "btn btn-primary" %>
+          <%= button_to 'Supprimer', @user, method: :delete, data: { confirm: 'Es-tu sûr ?' }, class: "btn btn-danger" %>
+        <% end %>
+      </div>
 
-<% if current_user == @user || current_user.admin? %>
-  <%= link_to 'Modifier', edit_user_path(@user), class: "btn btn-primary" %>
-  <%= button_to 'Supprimer', @user, method: :delete, data: { confirm: 'Es-tu sûr ?' }, class: "btn btn-danger" %>
-<% end %>
-
-<h2>Réservations</h2>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Teacher</th>
-      <th>Date</th>
-      <th>Statut</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @bookings.each do |booking| %>
-      <tr>
-        <td><%= booking.teacher.first_name %> <%= booking.teacher.last_name %></td>
-        <td><%= booking.date %></td>
-        <td><%= booking.status %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'Retour', root_path, class: "btn btn-secondary" %>
+      <div class="col-8 booking border p-3">
+        <h2>Reservations</h2>
+        <div class="card" style="width: 18rem;">
+          <img src="https://images2.imgbox.com/45/2c/1oCvUPLa_o.png" class="card-img-top" alt="teacher">
+          <div class="card-body">
+            <h5 class="card-title">Teacher Name</h5>
+            <p class="card-text">Booking Date:</p>
+            <p class="card-text">Booking status:</p>
+            <a href="#" class="btn btn-primary">Cancel</a>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
