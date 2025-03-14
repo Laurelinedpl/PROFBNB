@@ -4,11 +4,11 @@ class BookingsController < ApplicationController
   before_action :authorize_user!, only: %i[edit update destroy]
 
   def index
-    @bookings = current_user.admin? ? Booking.all : current_user.bookings
+    @bookings = current_user.bookings
   end
 
   def show
-    @bookings = @user.bookings
+    @bookings = current_user.bookings
   end
 
   def new
@@ -18,6 +18,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    @booking.status = 'En attente'
 
     if @booking.save
       redirect_to user_path(current_user), notice: 'La réservation a été créée avec succès.'
@@ -39,7 +40,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to bookings_path, notice: 'Réservation annulée avec succès !'
+    redirect_to user_path(current_user), notice: 'Réservation annulée avec succès !'
   end
 
   private

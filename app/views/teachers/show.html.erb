@@ -1,33 +1,37 @@
-<h1><%= @teacher.last_name %> <%= @teacher.first_name %></h1>
+<div style= "height: 130vh">
+  <div class="container m-3 text-center">
+    <div class="row">
+      <div class="col-4 profile border p-3">
+        <h1><%= @teacher.last_name %> <%= @teacher.first_name %></h1>
 
-<p>
-  <strong>Nom:</strong> <%= @teacher.last_name %>
-</p>
+        <p>
+          <strong>Nom:</strong> <%= @teacher.last_name %>
+        </p>
 
-<p>
-  <strong>Prénom:</strong> <%= @teacher.first_name %>
-</p>
-<%= cl_image_tag @teacher.photo.key, height: 300, width: 400, crop: :fill %>
+        <p>
+          <strong>Prénom:</strong> <%= @teacher.first_name %>
+        </p>
+        <%= cl_image_tag @teacher.photo.key, height: 300, width: 400, crop: :fill %>
 
-<%= link_to 'Modifier', edit_teacher_path(@teacher), class: "btn btn-primary" %>
-<%= link_to 'Retour', teachers_path, class: "btn btn-secondary" %>
+        <%# <%= link_to 'Modifier les informations', edit_teacher_path(@teacher), class: "btn btn-primary" %>
 
-<%= button_to 'Supprimer', @teacher, method: :delete, data: { confirm: 'Es-tu sûr ?' }, class: "btn btn-danger" %>
 
-<%= form_with(model: Booking.new, url: bookings_path, local: true) do |f| %>
-  <div class="mb-3">
-    <%= f.hidden_field :teacher_id, value: @teacher.id %>
+        <%# <%= button_to 'Supprimer', @teacher, method: :delete, data: { confirm: 'Es-tu sûr ?' }, class: "btn btn-primary" %>
+
+        <%= form_with(model: Booking.new, url: bookings_path, local: true) do |f| %>
+          <div class="mb-3">
+            <%= f.hidden_field :teacher_id, value: @teacher.id %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :date, "Date de réservation" %>
+            <%= f.date_select :date, { class: "form-control" } %>
+          </div>
+
+          <%= f.submit "Réserver maintenant", class: "btn btn-primary" %>
+          <%= link_to 'Retour', teachers_path, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="mb-3">
-    <%= f.label :date, "Date de réservation" %>
-    <%= f.date_select :date, { class: "form-control" } %>
-  </div>
-
-  <div class="mb-3">
-    <%= f.label :status, "Statut" %>
-    <%= f.select :status, Booking::STATUS, {}, class: "form-control" %>
-  </div>
-
-  <%= f.submit "Réserver maintenant", class: "btn btn-primary" %>
-<% end %>
+</div>
