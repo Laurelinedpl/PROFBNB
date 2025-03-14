@@ -14,7 +14,7 @@
       <tr>
         <td><%= booking.teacher.last_name %> <%= booking.teacher.first_name %></td>
         <td><%= l(booking.date, format: :long) %></td>
-        <td><%= booking.statut.capitalize %></td>
+        <td><%= booking.status.capitalize %></td>
         <td>
           <%= link_to 'Voir', booking_path(booking), class: "btn btn-info btn-sm" %>
           <% if current_user == booking.user || current_user.admin? %>

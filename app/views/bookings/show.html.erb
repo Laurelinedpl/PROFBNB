@@ -3,7 +3,7 @@
 <p><strong>Professeur :</strong> <%= @booking.teacher.last_name %> <%= @booking.teacher.first_name %></p>
 <p><strong>Utilisateur :</strong> <%= @booking.user.email %></p>
 <p><strong>Date :</strong> <%= l(@booking.date) %></p>
-<p><strong>Statut :</strong> <%= @booking.statut.capitalize %></p>
+<p><strong>Statut :</strong> <%= @booking.status.capitalize %></p>
 
 <% if current_user == @booking.user || current_user.admin? %>
   <%= link_to 'Modifier', edit_booking_path(@booking), class: "btn btn-primary" %>

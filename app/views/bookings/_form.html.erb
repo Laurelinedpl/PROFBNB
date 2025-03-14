@@ -14,5 +14,5 @@
     <%= f.select :status, Booking::STATUS, {}, class: "form-control" %>
   </div>
 
-  <%= f.submit booking.new_record? ? "Créer Booking" : "Mettre à jour", class: "btn btn-success" %>
+  <%= f.submit booking.new_record? ? "Réserver" : "Mettre à jour", class: "btn btn-success" %>
 <% end %>
